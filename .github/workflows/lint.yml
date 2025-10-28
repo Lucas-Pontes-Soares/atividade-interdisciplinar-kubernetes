@@ -1,9 +1,9 @@
-name: 'CI - Verificar HTML e CSS'
+name: 'CI - Verificação de Qualidade (HTML/CSS)'
 
 on:
   push:
     branches:
-      - main 
+      - main
   pull_request:
     branches:
       - main
@@ -11,33 +11,37 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-
     steps:
-    - name: 🚀 Checkout do Código
-      uses: actions/checkout@v4
+      - name: 🚀 Checkout do Código
+        uses: actions/checkout@v4
 
-    # ------------------------------------
-    # Passo 1: Verificar HTML (HTMLHint)
-    # ------------------------------------
-    - name: Verificador de HTML
-      uses: 'github/super-linter@v5.0.0'
-      with:
-        VALIDATE_HTML: true 
-        DEFAULT_BRANCH: main
-        FILTER_REGEX_INCLUDE: |
-          .*html.*
-        
-    # ------------------------------------
-    # Passo 2: Verificar CSS (Stylelint)
-    # ------------------------------------
-    - name: Verificador de CSS
-      uses: reviewdog/action-stylelint@dd2b435cc6a7c82705307a9dee740c9bbaa10411
-      with:
-        stylelint_input: '**/*.css'
+      # ==========================================================
+      # PASSO 1: LINTING APENAS PARA HTML
+      # ==========================================================
+      - name: 'PASSO 1: Validar HTML'
+        uses: github/super-linter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_HTML: true
+          VALIDATE_CSS: false 
+          DEFAULT_BRANCH: main
 
-    - name: Exibir mensagem final de sucesso
-      if: ${{ success() }}
-      run: |
-        echo '🎉 Linting concluído com sucesso!'
-        echo 'Todos os arquivos HTML e CSS foram verificados sem erros.'
-        echo 'Parabéns, pode fazer o build!'
+      # ==========================================================
+      # PASSO 2: LINTING APENAS PARA CSS
+      # ==========================================================
+      - name: 'PASSO 2: Validar CSS'
+        uses: github/super-linter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_HTML: false
+          VALIDATE_CSS: true
+          DEFAULT_BRANCH: main
+
+      - name: 'Exibir mensagem final de sucesso'
+        # Este passo só é executado se ambos os passos (HTML e CSS) passarem
+        if: ${{ success() }}
+        run: |
+          echo '🎉 Linting de HTML e CSS concluído com sucesso!'
+          echo 'Seu código está validado e pronto para o Build!'
