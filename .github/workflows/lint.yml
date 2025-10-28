@@ -1,0 +1,43 @@
+name: 'CI - Verificar HTML e CSS'
+
+on:
+  push:
+    branches:
+      - main 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 🚀 Checkout do Código
+      uses: actions/checkout@v4
+
+    # ------------------------------------
+    # Passo 1: Verificar HTML (HTMLHint)
+    # ------------------------------------
+    - name: Verificador de HTML
+      uses: 'github/super-linter@v5.0.0'
+      with:
+        VALIDATE_HTML: true 
+        DEFAULT_BRANCH: main
+        FILTER_REGEX_INCLUDE: |
+          .*html.*
+        
+    # ------------------------------------
+    # Passo 2: Verificar CSS (Stylelint)
+    # ------------------------------------
+    - name: Verificador de CSS
+      uses: reviewdog/action-stylelint@dd2b435cc6a7c82705307a9dee740c9bbaa10411
+      with:
+        stylelint_input: '**/*.css'
+
+    - name: Exibir mensagem final de sucesso
+      if: ${{ success() }}
+      run: |
+        echo '🎉 Linting concluído com sucesso!'
+        echo 'Todos os arquivos HTML e CSS foram verificados sem erros.'
+        echo 'Parabéns, pode fazer o build!'
