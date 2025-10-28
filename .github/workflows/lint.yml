@@ -22,7 +22,7 @@ jobs:
         uses: github/super-linter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           VALIDATE_HTML: true
           DEFAULT_BRANCH: main
 
@@ -33,7 +33,7 @@ jobs:
         uses: github/super-linter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           VALIDATE_CSS: true
           DEFAULT_BRANCH: main
 
