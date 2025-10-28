@@ -24,7 +24,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_HTML: true
-          VALIDATE_CSS: false 
           DEFAULT_BRANCH: main
 
       # ==========================================================
@@ -35,7 +34,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_ALL_CODEBASE: false
-          VALIDATE_HTML: false
           VALIDATE_CSS: true
           DEFAULT_BRANCH: main
 
