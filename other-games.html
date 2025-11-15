@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outros Jogos do Universo Minecraft</title>
+    
+    <!-- Importação do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Importação das fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Adicional para o "arrastar" e "spinner" -->
+    <style>
+        /* Estilos aplicados durante o "arrastar" */
+        #carousel-container.dragging {
+            user-select: none; /* Previne a seleção de texto no Chrome/Safari/Firefox */
+            -webkit-user-select: none; /* Suporte para navegadores mais antigos */
+        }
+        /* Previne que links ou imagens dentro dos cards sejam "arrastados" */
+        #carousel-container.dragging > div {
+            pointer-events: none; 
+        }
+
+        /* Estilos do Spinner (Loading) REMOVIDOS */
+        
+    </style>
+
+    <!-- Configuração personalizada do Tailwind (IDÊNTICA à index.html) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Fonte padrão para o corpo do texto
+                        sans: ['Inter', 'sans-serif'],
+                        // Fonte pixelada para títulos
+                        pixel: ['"Press Start 2P"', 'cursive']
+                    },
+                    colors: {
+                        // Cores personalizadas inspiradas no Minecraft
+                        'minecraft-green': '#6a994e',
+                        'minecraft-dirt': '#784421',
+                        'minecraft-stone': '#808080',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-100 font-sans text-gray-900 antialiased">
+
+    <!-- ===== Barra de Navegação (Navbar) ===== -->
+    <!-- Exatamente a mesma da index.html para consistência -->
+    <!-- Classe "hidden" removida para que a barra volte a aparecer -->
+    <nav class="bg-stone-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo/Título do Site -->
+            <a href="#" onclick="event.preventDefault()" class="text-2xl font-pixel text-green-400 hover:text-green-300 transition-colors">
+                MINECRAFT
+            </a>
+            
+            <!-- Links de Navegação -->
+            <!-- Os links ainda não levam a lugar algum -->
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="index.html" class="hover:text-green-300 transition-colors duration-300">Início</a></li>
+                <li><a href="about.html" class="hover:text-green-300 transition-colors duration-300">Sobre</a></li>
+                <li><a href="other-games.html" class="hover:text-green-300 transition-colors duration-300">Outros Jogos</a></li>
+                <li><a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300">Baixar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== Seção Hero (Cabeçalho da Página) ===== -->
+    <header class="relative text-center overflow-hidden">
+        <!-- Imagem de fundo (placeholder) -->
+        <img src="https://comparegames.com.br/_next/image?url=https%3A%2F%2Fus-east-1-shared-usea1-02.graphassets.com%2FAezywmWICRKCPWoFJCljEz%2Fcmhdryud8bke907k4pv3igyca&w=3840&q=100" 
+             alt="[Imagem de arte conceitual de Minecraft Legends]" 
+             class="w-full h-[300px] md:h-[400px] object-cover">
+        
+        <!-- Sobreposição escura para legibilidade -->
+        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-4">
+            <h1 class="text-5xl md:text-6xl font-pixel text-white leading-tight shadow-lg">
+                Universo Expandido
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mt-6 max-w-2xl">
+                Conheça os outros jogos que expandem a lenda de Minecraft.
+            </p>
+        </div>
+    </header>
+
+    <!-- ===== Seção do Carrossel de Jogos ===== -->
+    <section id="games-carousel" class="py-20 bg-white">
+        <div class="container mx-auto">
+            <!-- Título e Subtítulo da Seção -->
+            <div class="text-center px-6 mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    Explore Outros Títulos
+                </h2>
+                <p class="prose prose-lg max-w-3xl mx-auto text-gray-700 leading-relaxed">
+                    O universo de Minecraft vai muito além do jogo de blocos. Descubra novas formas de jogar, desde aventuras de RPG até jogos de estratégia em tempo real.
+                </p>
+            </div>
+
+            <!-- 
+                Container do Carrossel
+                - 'flex': Coloca os cards lado a lado.
+                - 'overflow-x-auto': Permite a rolagem horizontal.
+                - 'space-x-8': Adiciona espaço entre os cards.
+                - 'pb-8': Adiciona um preenchimento inferior para a barra de rolagem.
+                - 'snap-x snap-mandatory': Habilita o "CSS Scroll Snap", fazendo o scroll parar exatamente em um card.
+                - 'pl-6 pr-6': Adiciona padding nas laterais para os cards não colarem nas bordas.
+            -->
+            <!-- 
+                Modificações: 
+                - Removido 'snap-x' e 'snap-mandatory'
+                - Adicionado 'id="carousel-container"' para o JS
+                - Adicionado 'cursor-grab' para indicar que é arrastável
+            -->
+            <div id="carousel-container" class="flex overflow-x-auto space-x-8 pb-8 pl-6 pr-6 cursor-grab">
+                
+                <!-- Card Vertical 1: Minecraft Dungeons -->
+                <div class="flex-shrink-0 w-11/12 sm:w-96 bg-stone-50 rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://i.redd.it/g8slkq7muey41.png" 
+                         alt="[Arte de Minecraft Dungeons]" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Action RPG</span>
+                        <h3 class="text-2xl font-bold mb-3">Minecraft Dungeons</h3>
+                        <p class="text-gray-600">
+                            Lute em um jogo de aventura totalmente novo, inspirado em 'dungeon crawlers' clássicos. Jogue sozinho ou junte-se a até quatro amigos para enfrentar hordas de monstros e encontrar tesouros épicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Vertical 2: Minecraft Legends -->
+                <div class="flex-shrink-0 w-11/12 sm:w-96 bg-stone-50 rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/Minecraft_Legends_CinematicTrailer_Thumbnail_1920x1080.png" 
+                         alt="[Arte de Minecraft Legends]" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block bg-amber-100 text-amber-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Action Strategy</span>
+                        <h3 class="text-2xl font-bold mb-3">Minecraft Legends</h3>
+                        <p class="text-gray-600">
+                            Uma lenda de estratégia e ação. Explore uma terra pacífica que é ameaçada pela invasão dos Piglins. Una o Mundo Superior e lidere seus aliados em batalhas estratégicas para salvar o mundo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Vertical 3: Minecraft: Story Mode -->
+                <div class="flex-shrink-0 w-11/12 sm:w-96 bg-stone-50 rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5f625535-bf7b-4499-9862-aa36f82093ed/d9x5lbd-622778c3-42a0-42ea-b6ed-e61c8fa879b2.jpg/v1/fill/w_1024,h_576,q_75,strp/minecraft_story_mode_wallpaper_by_demoncloud_d9x5lbd-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTc2IiwicGF0aCI6Ii9mLzVmNjI1NTM1LWJmN2ItNDQ5OS05ODYyLWFhMzZmODIwOTNlZC9kOXg1bGJkLTYyMjc3OGMzLTQyYTAtNDJlYS1iNmVkLWU2MWM4ZmE4NzliMi5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.CbfXRbTPc-UUIVGaPZCmNRuuBHqoPj76IfL7exfCrBs" 
+                         alt="[Arte de Minecraft Story Mode]" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block bg-sky-100 text-sky-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Aventura Narrativa</span>
+                        <h3 class="text-2xl font-bold mb-3">Minecraft: Story Mode</h3>
+                        <p class="text-gray-600">
+                            (Da Telltale Games) Uma aventura episódica onde você joga como Jesse. Suas escolhas e conversas moldam a história enquanto você e seus amigos partem em uma jornada para encontrar a Ordem da Pedra.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Vertical 4: Minecraft Earth (Bônus) -->
+                <div class="flex-shrink-0 w-11/12 sm:w-96 bg-stone-50 rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://apptica.com/blog/content/images/2019/11/minecraft-cover.jpg" 
+                         alt="[Arte de Minecraft Earth]" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Realidade Aumentada</span>
+                        <h3 class="text-2xl font-bold mb-3">Minecraft Earth</h3>
+                        <p class="text-gray-600">
+                            (Descontinuado) Um jogo de realidade aumentada que trazia o universo de blocos para o nosso mundo real. Permitia que jogadores coletassem 'mobs' e construíssem estruturas colaborativas no mundo real.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card Vertical 5: Minecraft Blast (NOVO) -->
+                <div class="flex-shrink-0 w-11/12 sm:w-96 bg-stone-50 rounded-lg shadow-xl overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <img src="https://gaming-cdn.com/images/news/articles/16066/cover/1000x563/first-look-at-minecraft-blast-a-mobile-game-by-king-and-mojang-cover69170136daa7c.jpg" 
+                         alt="[Arte de Minecraft Blast]" 
+                         class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <span class="inline-block bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Match Puzzle</span>
+                        <h3 class="text-2xl font-bold mb-3">Minecraft Blast</h3>
+                        <p class="text-gray-600">
+                            (Lançamento futuro) Um novo jogo feito em parceria com a King, criadora de Candy Crush.
+                        </p>
+                    </div>
+                </div>
+
+            </div> <!-- Fim do Container do Carrossel -->
+        </div>
+    </section>
+
+    <!-- ===== NOVA SEÇÃO: Funcionalidade da API Gemini (REMOVIDA) ===== -->
+    
+    <!-- ===== Seção de Chamada para Ação (CTA) ===== -->
+    <section class="bg-minecraft-green text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                Pronto para Começar sua Aventura?
+            </h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Junte-se a milhões de jogadores em uma comunidade global de criadores e aventureiros. O próximo bloco é seu para colocar.
+            </p>
+            <a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300" target="_blank"
+               class="bg-white text-minecraft-green font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                Comece a Jogar Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== Rodapé (Footer) ===== -->
+    <!-- Exatamente o mesmo da index.html para consistência -->
+    <footer class="bg-stone-800 text-gray-400 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg">© 2025 Página de Fã do Minecraft</p>
+            <p class="text-sm mt-2">
+                Este site não é oficial e não é afiliado à Mojang Studios ou Microsoft.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ===== Script para Carrossel "Arrastável" ===== -->
+    <script>
+        // Seleciona o container do carrossel
+        const slider = document.querySelector('#carousel-container');
+        
+        if (slider) {
+            // Variáveis de estado para o "arrastar"
+            let isDown = false; // Flag para saber se o mouse está pressionado
+            let startX;         // Posição X inicial do mouse
+            let scrollLeft;     // Posição inicial do scroll
+
+            // Evento: Mouse é pressionado
+            slider.addEventListener('mousedown', (e) => {
+                // Previne o comportamento padrão (seleção de texto, arrastar imagem)
+                e.preventDefault(); 
+                
+                isDown = true;
+                slider.classList.add('dragging'); // Adiciona a classe .dragging
+                slider.classList.remove('cursor-grab');
+                slider.classList.add('cursor-grabbing'); // Muda o cursor para "agarrando"
+                
+                // Posição do mouse dentro do elemento
+                startX = e.pageX - slider.offsetLeft;
+                // Posição atual do scroll
+                scrollLeft = slider.scrollLeft;
+            });
+
+            // Função para parar o "arrastar"
+            const stopDragging = () => {
+                isDown = false;
+                slider.classList.remove('dragging'); // Remove a classe .dragging
+                slider.classList.remove('cursor-grabbing');
+                slider.classList.add('cursor-grab'); // Volta o cursor para "mão"
+            };
+
+            // Evento: Mouse sai da área do carrossel
+            slider.addEventListener('mouseleave', stopDragging);
+            // Evento: Mouse é solto
+            slider.addEventListener('mouseup', stopDragging);
+
+            // Evento: Mouse se move
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return; // Só executa se o mouse estiver pressionado
+                
+                e.preventDefault(); // Impede a seleção de texto *durante* o movimento
+                
+                // Posição atual do mouse
+                const x = e.pageX - slider.offsetLeft;
+                
+                // Distância que o mouse "andou" (walk)
+                // Removido o multiplicador * 2 para um movimento 1:1 mais fluido
+                const walk = (x - startX); 
+                
+                // Define a nova posição do scroll
+                slider.scrollLeft = scrollLeft - walk;
+            });
+        }
+    </script>
+
+    <!-- ===== NOVO SCRIPT: Lógica da API Gemini (REMOVIDO) ===== -->
+    
+</body>
+</html>
