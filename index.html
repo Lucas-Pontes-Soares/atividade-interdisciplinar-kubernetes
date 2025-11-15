@@ -1,12 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Minecraft: Explore Mundos Infinitos</title>
+    
+    <!-- Importação do Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Importação das fontes do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Configuração personalizada do Tailwind para adicionar fontes -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        // Fonte padrão para o corpo do texto
+                        sans: ['Inter', 'sans-serif'],
+                        // Fonte pixelada para títulos
+                        pixel: ['"Press Start 2P"', 'cursive']
+                    },
+                    colors: {
+                        // Cores personalizadas inspiradas no Minecraft
+                        'minecraft-green': '#6a994e',
+                        'minecraft-dirt': '#784421',
+                        'minecraft-stone': '#808080',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <h1>Hello, World!</h1>
+<body class="bg-stone-100 font-sans text-gray-900 antialiased">
+
+    <!-- ===== Barra de Navegação (Navbar) ===== -->
+    <!-- Fica no topo, com fundo escuro e links que não levam a lugar algum -->
+    <nav class="bg-stone-800 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo/Título do Site -->
+            <a href="#" onclick="event.preventDefault()" class="text-2xl font-pixel text-green-400 hover:text-green-300 transition-colors">
+                MINECRAFT
+            </a>
+            
+            <!-- Links de Navegação -->
+            <!-- Usamos 'onclick="event.preventDefault()"' para impedir que o link mude a página -->
+            <ul class="flex space-x-6 text-lg">
+                <li><a href="index.html" class="hover:text-green-300 transition-colors duration-300">Início</a></li>
+                <li><a href="about.html" class="hover:text-green-300 transition-colors duration-300">Sobre</a></li>
+                <li><a href="other-games.html" class="hover:text-green-300 transition-colors duration-300">Outros Jogos</a></li>
+                <li><a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300">Baixar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== Seção Hero (Principal) ===== -->
+    <!-- A primeira coisa que o usuário vê, com uma imagem grande e um título chamativo -->
+    <header class="relative text-center overflow-hidden">
+        <!-- Imagem de fundo (placeholder) -->
+        <img src="https://i.imgur.com/6CnNbwl.png" 
+             alt="[Imagem de um vasto cenário do Minecraft com montanhas e um rio]" 
+             class="w-full h-[500px] md:h-[700px] object-cover">
+        
+        <!-- Sobreposição escura para legibilidade do texto -->
+        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-4">
+            <h1 class="text-5xl md:text-7xl font-pixel text-white leading-tight shadow-lg">
+                Construa seu Mundo
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 mt-6 max-w-2xl">
+                Um universo infinito de blocos e possibilidades espera pela sua imaginação.
+            </p>
+        </div>
+    </header>
+
+    <!-- ===== Seção "O que é?" (Sobre) ===== -->
+    <section id="sobre" class="py-20 bg-white">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Imagem Ilustrativa (Placeholder) -->
+            <div class="rounded-lg overflow-hidden shadow-2xl">
+                <img src="https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/08/minecraft-4.jpg?w=1600&h=900&fit=crop" 
+                     alt="[Imagem do Steve e da Alex explorando uma caverna no Minecraft]" 
+                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+            </div>
+            
+            <!-- Texto Descritivo -->
+            <div class="prose prose-lg max-w-none">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+                    O que é <span class="text-minecraft-green">Minecraft</span>?
+                </h2>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Minecraft é um jogo revolucionário onde você pode cavar (mine) e construir (craft) diferentes tipos de blocos 3D em um mundo vasto e gerado proceduralmente. Você não está sozinho: o mundo é habitado por criaturas, algumas amigáveis e outras nem tanto.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    A verdadeira magia do jogo está na liberdade. Não há objetivos definidos. Você pode escolher explorar cavernas profundas, lutar contra monstros no modo sobrevivência, ou usar recursos ilimitados para construir obras-primas no modo criativo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Seção de Destaques (Features) ===== -->
+    <!-- Mostra os principais modos de jogo em cards -->
+    <section id="modos" class="py-20 bg-stone-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">
+                Infinitas Possibilidades
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card: Modo Sobrevivência -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-3">Modo Sobrevivência</h3>
+                    <p class="text-gray-600">
+                        Colete recursos, crie ferramentas, construa abrigos e defenda-se de monstros. Cuide da sua fome e saúde para sobreviver à noite.
+                    </p>
+                </div>
+                
+                <!-- Card: Modo Criativo -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-3">Modo Criativo</h3>
+                    <p class="text-gray-600">
+                        Acesso ilimitado a todos os blocos e itens. Você pode voar e construir qualquer coisa que sua imaginação permitir, sem se preocupar com inimigos.
+                    </p>
+                </div>
+                
+                <!-- Card: Exploração -->
+                <div class="bg-white p-8 rounded-xl shadow-lg text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <h3 class="text-2xl font-semibold mb-3">Explore Biomas</h3>
+                    <p class="text-gray-600">
+                        De florestas densas e oceanos profundos a montanhas nevadas e desertos áridos. Cada mundo é único e cheio de segredos para descobrir.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== Seção de Chamada para Ação (CTA) ===== -->
+    <!-- Convida o usuário a jogar -->
+    <section class="bg-minecraft-green text-white py-20">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-6">
+                Pronto para Começar sua Aventura?
+            </h2>
+            <p class="text-xl mb-10 max-w-3xl mx-auto">
+                Junte-se a milhões de jogadores em uma comunidade global de criadores e aventureiros. O próximo bloco é seu para colocar.
+            </p>
+            <a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300" target="_blank"
+               class="bg-white text-minecraft-green font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+                Comece a Jogar Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== Rodapé (Footer) ===== -->
+    <footer class="bg-stone-800 text-gray-400 py-10">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg">© 2025 Página de Fã do Minecraft</p>
+            <p class="text-sm mt-2">
+                Este site não é oficial e não é afiliado à Mojang Studios ou Microsoft.
+            </p>
+        </div>
+    </footer>
+
 </body>
 </html>
