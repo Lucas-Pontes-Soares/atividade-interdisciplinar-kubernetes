@@ -5,139 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Minecraft: A História e as Dimensões</title>
     
-    <!-- Importação do Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
     <!-- Importação das fontes do Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Configuração personalizada do Tailwind (IDÊNTICA à index.html) -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        // Fonte padrão para o corpo do texto
-                        sans: ['Inter', 'sans-serif'],
-                        // Fonte pixelada para títulos
-                        pixel: ['"Press Start 2P"', 'cursive']
-                    },
-                    colors: {
-                        // Cores personalizadas inspiradas no Minecraft
-                        'minecraft-green': '#6a994e',
-                        'minecraft-dirt': '#784421',
-                        'minecraft-stone': '#808080',
-                    }
-                }
-            }
-        }
-    </script>
+    <!-- Importação do CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-stone-100 font-sans text-gray-900 antialiased">
+<body>
 
     <!-- ===== Barra de Navegação (Navbar) ===== -->
-    <!-- Exatamente a mesma da index.html para consistência -->
-    <nav class="bg-stone-800 text-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- Logo/Título do Site -->
-            <a href="#" onclick="event.preventDefault()" class="text-2xl font-pixel text-green-400 hover:text-green-300 transition-colors">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="index.html" class="navbar-logo">
                 MINECRAFT
             </a>
-            
-            <!-- Links de Navegação -->
-            <!-- Os links ainda não levam a lugar algum -->
-            <ul class="flex space-x-6 text-lg">
-                <li><a href="index.html" class="hover:text-green-300 transition-colors duration-300">Início</a></li>
-                <li><a href="about.html" class="hover:text-green-300 transition-colors duration-300">Sobre</a></li>
-                <li><a href="other-games.html" class="hover:text-green-300 transition-colors duration-300">Outros Jogos</a></li>
-                <li><a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300">Baixar</a></li>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="about.html">Sobre</a></li>
+                <li><a href="other-games.html">Outros Jogos</a></li>
+                <li><a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank">Baixar</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- ===== Seção Hero (Cabeçalho da Página) ===== -->
-    <!-- Mantido igual para consistência da página "Sobre" -->
-    <header class="relative text-center overflow-hidden">
-        <!-- Imagem de fundo (placeholder) -->
+    <header class="hero">
         <img src="https://4kwallpapers.com/images/wallpapers/minecraft-game-3840x2160-16737.jpg" 
              alt="[Imagem de um Bloco de Grama do Minecraft em close-up]" 
-             class="w-full h-[300px] md:h-[400px] object-cover">
+             class="hero-image hero-image-about">
         
-        <!-- Sobreposição escura para legibilidade -->
-        <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-center items-center p-4">
-            <h1 class="text-5xl md:text-6xl font-pixel text-white leading-tight shadow-lg">
+        <div class="hero-overlay">
+            <h1 class="hero-title" style="font-size: 3.75rem;"> <!-- text-6xl -->
                 Sobre o Jogo
             </h1>
-            <p class="text-xl md:text-2xl text-gray-200 mt-6 max-w-2xl">
+            <p class="hero-subtitle">
                 Descubra a história e os segredos de um fenômeno mundial.
             </p>
         </div>
     </header>
 
     <!-- ===== Seção "Mais que um Jogo" (História e Mecânicas) ===== -->
-    <section id="historia" class="py-20 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Imagem Ilustrativa (Placeholder) -->
-            <div class="rounded-lg overflow-hidden shadow-2xl">
+    <section id="historia" class="section section-bg-white">
+        <div class="container grid-container grid-cols-2">
+            <div class="feature-image">
                 <img src="https://cdn.suwalls.com/wallpapers/games/minecraft-8188-2560x1600.jpg" 
-                     alt="[Imagem de um Bloco de Comando, simbolizando a mecânica do jogo]" 
-                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                     alt="[Imagem de um Bloco de Comando, simbolizando a mecânica do jogo]">
             </div>
             
-            <!-- Texto Descritivo -->
-            <div class="prose prose-lg max-w-none">
-                <h2 class="text-4xl font-bold text-gray-800 mb-6">
+            <div class="prose">
+                <h2>
                     De Projeto Pessoal a Fenômeno
                 </h2>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <p>
                     Originalmente criado por Markus "Notch" Persson e desenvolvido pela Mojang Studios, Minecraft começou como um projeto independente. Rapidamente, ele se tornou um dos jogos mais vendidos de todos os tempos.
                 </p>
-                <p class="text-gray-700 leading-relaxed mb-4">
+                <p>
                     Seu sucesso vem da combinação única de mecânicas: no <span class="font-semibold text-minecraft-dirt">Modo Sobrevivência</span>, os jogadores devem gerenciar fome e saúde enquanto coletam recursos para construir e se defender. No <span class="font-semibold text-minecraft-green">Modo Criativo</span>, a imaginação é o único limite.
                 </p>
-                <p class="text-gray-700 leading-relaxed">
+                <p>
                     Além disso, o jogo oferece modos como <span class="font-semibold text-red-600">Hardcore</span>, onde a morte é permanente, e <span class="font-semibold text-blue-600">Aventura</span>, focado na exploração de mapas criados pela comunidade.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- ===== NOVO LAYOUT: Seções de Dimensões Alternadas ===== -->
+    <!-- ===== Seções de Dimensões Alternadas ===== -->
 
     <!-- Seção: O Mundo Superior -->
-    <section id="overworld" class="py-20 bg-stone-100">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Texto primeiro -->
-            <div class="prose prose-lg max-w-none">
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">O Mundo Superior (Overworld)</h3>
-                <p class="text-gray-700 leading-relaxed">
+    <section id="overworld" class="section section-bg-stone">
+        <div class="container grid-container grid-cols-2">
+            <div class="prose">
+                <h3>O Mundo Superior (Overworld)</h3>
+                <p>
                     Esta é a dimensão inicial onde todos os jogadores começam. É um lugar vasto e relativamente pacífico durante o dia, repleto de biomas variados: florestas, desertos, oceanos, montanhas nevadas e pântanos. É aqui que você coleta madeira, pedra, cuida de animais e constrói sua base principal.
                 </p>
             </div>
-            <!-- Imagem depois -->
-            <div class="rounded-lg overflow-hidden shadow-2xl">
+            <div class="feature-image">
                 <img src="https://images.steamusercontent.com/ugc/2310974141604980016/B4EF3A7A2D1772DE26B1A6F51CE33A04FD8BB917/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" 
-                     alt="[Cenário do Mundo Superior com biomas variados]" 
-                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                     alt="[Cenário do Mundo Superior com biomas variados]">
             </div>
         </div>
     </section>
 
     <!-- Seção: O Nether -->
-    <section id="nether" class="py-20 bg-white">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Imagem primeiro -->
-            <div class="rounded-lg overflow-hidden shadow-2xl">
+    <section id="nether" class="section section-bg-white">
+        <div class="container grid-container grid-cols-2">
+            <div class="feature-image">
                 <img src="https://images4.alphacoders.com/133/1333795.jpeg" 
-                     alt="[Cenário do Nether com lava e Ghasts]" 
-                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                     alt="[Cenário do Nether com lava e Ghasts]">
             </div>
-            <!-- Texto depois -->
-            <div class="prose prose-lg max-w-none">
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">O Nether</h3>
-                <p class="text-gray-700 leading-relaxed">
+            <div class="prose">
+                <h3>O Nether</h3>
+                <p>
                     Uma dimensão infernal acessada através de um Portal de Obsidiana. O Nether é um lugar extremamente perigoso, composto principalmente por Netherrack, lagos de lava e criaturas hostis como Ghasts e Piglins. No entanto, é essencial para o progresso, pois contém recursos únicos como Quartzo e a raríssima Netherita.
                 </p>
             </div>
@@ -145,52 +106,45 @@
     </section>
 
     <!-- Seção: O Fim (The End) -->
-    <section id="end" class="py-20 bg-stone-100">
-        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <!-- Texto primeiro -->
-            <div class="prose prose-lg max-w-none">
-                <h3 class="text-3xl font-bold text-gray-800 mb-4">O Fim (The End)</h3>
-                <p class="text-gray-700 leading-relaxed">
+    <section id="end" class="section section-bg-stone">
+        <div class="container grid-container grid-cols-2">
+            <div class="prose">
+                <h3>O Fim (The End)</h3>
+                <p>
                     A dimensão final e mais misteriosa. É um vazio escuro composto por ilhas flutuantes de Pedra do Fim, habitadas por Endermen. A ilha central é o lar do chefe final do jogo, o <span class="font-semibold text-purple-700">Ender Dragon</span>. Derrotá-lo é considerado "zerar" o jogo, mas a exploração continua nas Cidades do Fim em busca da valiosa Elytra.
                 </p>
             </div>
-            <!-- Imagem depois -->
-            <div class="rounded-lg overflow-hidden shadow-2xl">
+            <div class="feature-image">
                 <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/199eeff0-af38-4f30-ae28-f447f30a78a6/d6mjlyi-0a3cc4e1-6706-4cb4-b2fe-8cdc3fc26f5b.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8xOTllZWZmMC1hZjM4LTRmMzAtYWUyOC1mNDQ3ZjMwYTc4YTYvZDZtamx5aS0wYTNjYzRlMS02NzA2LTRjYjQtYjJmZS04Y2RjM2ZjMjZmNWIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.3-q79S57Kbhlb_LtiJUdO_Me7o_7faD_IJMa3RBmChw" 
-                     alt="[Cenário do Fim com o Ender Dragon]" 
-                     class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500">
+                     alt="[Cenário do Fim com o Ender Dragon]">
             </div>
         </div>
     </section>
 
-    <!-- ===== NOVO LAYOUT: Seção "Comunidade" Centralizada ===== -->
-    <section id="comunidade" class="py-20 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <!-- Título e Parágrafo Centralizados -->
-            <h2 class="text-4xl font-bold text-gray-800 mb-6">
+    <!-- ===== Seção "Comunidade" ===== -->
+    <section id="comunidade" class="section section-bg-white community-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 1.5rem;">
                 Uma Comunidade Global
             </h2>
-            <p class="prose prose-lg max-w-3xl mx-auto text-gray-700 leading-relaxed mb-16">
+            <p class="prose community-text">
                 O que mantém o Minecraft vivo após tantos anos é sua comunidade. Milhões de jogadores criam conteúdo diariamente, desde construções gigantescas até mapas de aventura complexos, expandindo o jogo de formas que os desenvolvedores originais nunca imaginaram.
             </p>
             
-            <!-- Layout de Colunas com Ícones -->
-            <div class="grid md:grid-cols-2 gap-12 text-left">
-                <!-- Coluna 1: Mods -->
-                <div class="bg-stone-50 p-8 rounded-lg shadow-lg flex items-start space-x-6">
+            <div class="grid-container grid-cols-2">
+                <div class="community-card">
                     <div>
-                        <h4 class="text-2xl font-semibold mb-3">Modificações (Mods)</h4>
-                        <p class="text-gray-600">
+                        <h4>Modificações (Mods)</h4>
+                        <p>
                             A comunidade cria "Mods" que alteram o jogo, adicionando desde novos blocos e criaturas até sistemas complexos de magia ou tecnologia industrial.
                         </p>
                     </div>
                 </div>
                 
-                <!-- Coluna 2: Servidores -->
-                <div class="bg-stone-50 p-8 rounded-lg shadow-lg flex items-start space-x-6">
+                <div class="community-card">
                     <div>
-                        <h4 class="text-2xl font-semibold mb-3">Servidores Multiplayer</h4>
-                        <p class="text-gray-600">
+                        <h4>Servidores Multiplayer</h4>
+                        <p>
                             Servidores online permitem que amigos joguem juntos, mas também criam mundos persistentes massivos (MMOs) e minigames competitivos como SkyWars e BedWars.
                         </p>
                     </div>
@@ -200,28 +154,25 @@
     </section>
 
     <!-- ===== Seção de Chamada para Ação (CTA) ===== -->
-    <!-- Exatamente a mesma da index.html para consistência -->
-    <section class="bg-minecraft-green text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6">
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title">
                 Pronto para Começar sua Aventura?
             </h2>
-            <p class="text-xl mb-10 max-w-3xl mx-auto">
+            <p class="cta-text">
                 Junte-se a milhões de jogadores em uma comunidade global de criadores e aventureiros. O próximo bloco é seu para colocar.
             </p>
-            <a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="hover:text-green-300 transition-colors duration-300" target="_blank"
-               class="bg-white text-minecraft-green font-bold text-lg py-4 px-10 rounded-full shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
+            <a href="https://www.bing.com/search?q=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizada&form=QBLH&sp=-1&ghc=1&lq=0&pq=como+baixar+minecraft+de+gra%C3%A7a+free+sem+virus+2025+versao+atualizad&sc=0-67&qs=n&sk=&cvid=D536A9D2F829455FACE2ECD34BE837FA" target="_blank" class="cta-button">
                 Comece a Jogar Agora
             </a>
         </div>
     </section>
 
     <!-- ===== Rodapé (Footer) ===== -->
-    <!-- Exatamente o mesmo da index.html para consistência -->
-    <footer class="bg-stone-800 text-gray-400 py-10">
-        <div class="container mx-auto px-6 text-center">
+    <footer class="footer">
+        <div class="container">
             <p class="text-lg">© 2025 Página de Fã do Minecraft</p>
-            <p class="text-sm mt-2">
+            <p class="text-sm">
                 Este site não é oficial e não é afiliado à Mojang Studios ou Microsoft.
             </p>
         </div>
